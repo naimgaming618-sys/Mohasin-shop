@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mohasin Ultra Shop</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#020617;
+    color:white;
+    text-align:center;
+}
+
+/* LOADER */
+#loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    color:#ff00cc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+}
+
+/* MAIN */
+#main{
+    display:none;
+}
+
+/* HEADER */
+h1{
+    color:#ff00cc;
+    text-shadow:0 0 15px #ff00cc;
+}
+
+/* CARD */
+.card{
+    background:black;
+    margin:20px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 20px #ff00cc;
+}
+
+img{
+    width:100%;
+    height:250px;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+/* BUTTON */
+button{
+    background:#ff00cc;
+    padding:10px 15px;
+    border:none;
+    color:white;
+    border-radius:5px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff33cc;
+}
+
+/* SELECT */
+select{
+    padding:10px;
+    margin:10px;
+    border-radius:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="loader">Loading Mohasin Shop...</div>
+
+<div id="main">
+
+<h1>🔥 MOHASIN ULTRA SHOP 🔥</h1>
+
+<!-- DRIP -->
+<div class="card">
+<img src="drip.jpg">
+<h2>DRIP CLIENT</h2>
+
+<select id="drip">
+<option>1 Day - ৳110</option>
+<option>3 Day - ৳250</option>
+<option>7 Day - ৳500</option>
+</select>
+
+<button onclick="buy('DRIP CLIENT','drip')">Buy Now</button>
+</div>
+
+<!-- HG -->
+<div class="card">
+<img src="hg.jpg">
+<h2>HG CHEATS</h2>
+
+<select id="hg">
+<option>1 Day - ৳300</option>
+<option>7 Day - ৳800</option>
+<option>30 Day - ৳1500</option>
+</select>
+
+<button onclick="buy('HG CHEATS','hg')">Buy Now</button>
+</div>
+
+</div>
+
+<script>
+
+/* LOADER ONLY */
+setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+    document.getElementById("main").style.display="block";
+},2000);
+
+/* BUY SYSTEM */
+function buy(name,id){
+    let plan=document.getElementById(id).value;
+    let confirmPay=confirm("Payment done?");
+    
+    if(confirmPay){
+        let number="8801772554345";
+        let msg="Order: "+name+" | "+plan;
+        window.open("https://wa.me/"+number+"?text="+encodeURIComponent(msg));
+    }else{
+        alert("Please complete payment first!");
+    }
+}
+
+</script>
+
+</body>
+</html>
